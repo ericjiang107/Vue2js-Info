@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Vue JS 2</title>
+</head>
+<body>
+    <!-- Remember that everything inside this div is controlled by el instance so you cannot access anything inside this div in another div  -->
+    <div id="vue-app">
+        <!-- to display the information in data from the vue instance -->
+        <p> {{ name }} </p>
+        <p> Job: {{ job }} </p>
+        
+        <!-- To use a method -->
+        <!-- <h1> {{ greet() }} </h1> -->
+
+        <!-- since greet is our function name -->
+        <!-- We can also pass in paremeters inside our called functions -->
+        <h2> {{ greet('afternoon sir') }} </h2>
+
+        <h1> Data Binding Example </h1>
+        <!-- v-bind: or : allows you to bind something to it, making it dynamic -->
+        <a :href="website"> Website Binding </a>
+        <br>
+        <!-- We can even bind a specific field into value to display it -->
+        <input type="text" :value="name" />
+        <!-- The reverse also works where we create an object inside our instance with the tag and reference it here -->
+        <p v-html="websiteTag"></p>
+    </div>
+
+    <hr>
+
+    <div id="vue-events">
+        <!-- Instead of v-on: you can also just use the '@' symbol -->
+        <!-- v-on can generally be used to listen to events -->
+        <h1> Events </h1>
+        <!-- v-on is usually used when having a click event -->
+        <button v-on:click="add(1)"> Add a Year </button>
+        <!-- to change += 1, we can just do += value -->
+        <button v-on:click="subtract(1)"> Subtract a Year </button>
+        <p> My age is: {{ age }} </p>
+
+        <!-- Reacting to a double click instead of single clicks -->
+        <button v-on:dblclick="add(2)"> Double Click to Add twice as much to age </button>
+        <button v-on:dblclick="subtract(2)"> Double Click to Subtract twice as much to age </button>
+        <p> My age after being double clicked: {{ age }} </p>
+
+        <!-- we want to create a box that updates based on the user hovering their mouse over the box -->
+        <div id="canvas" v-on:mousemove="updateXY">
+            <!-- v-on:mousemove="" means we are creating an event listener that listens for the mouse when it moves -->
+            x-coordinate: {{ x }}
+            <br>
+            y-coordinate: {{ y }}
+        </div>
+
+        <h2> Event Modifiers </h2>
+        <!-- To add an event modifier add ".{modifier name}" to the event -->
+        <button v-on:click.once="add(1)"> Add a Year </button>
+        <!-- the .once to the click event basically tells the event that it will only listen to it once  -->
+        {{ age }}
+        <!-- Another example of adding a modifier -->
+        <br>
+        <br>
+        <a v-on:click.prevent="click" href="htpp://www.thenetninja.co.uk"> The Net Ninja </a>
+        <!-- the ".prevent" modifier stops the default operation and only proceeds with the stated function -->
+
+    </div> 
+
+    <script src="app.js"></script>
+</body>
+</html>
