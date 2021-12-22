@@ -64,8 +64,61 @@
         <br>
         <a v-on:click.prevent="click" href="htpp://www.thenetninja.co.uk"> The Net Ninja </a>
         <!-- the ".prevent" modifier stops the default operation and only proceeds with the stated function -->
-
     </div> 
+
+    <hr>
+
+    <div id="vue-computing">
+        <h1> Computed Properties </h1>
+        <button v-on:click="a++"> Add to A </button>
+        <button v-on:click="b++"> Add to B </button>
+        <p> A - {{ a }} </p>
+        <p> B - {{ b }} </p>
+        <!-- will run to look for the addToA properties -->
+        <p> Age + A = {{ addToA }} </p>
+        <p> Age + B = {{ addToB }} </p>
+    </div>
+
+    <div id="dynamic-css">
+        <h1> Dynamic CSS </h1>
+        <h2> Example 1 </h2>
+        <!-- v-bind:class binds to a class -->
+        <!-- the "{}" created next to the class is an object with a key, value pairing -->
+        <!-- the available: refers to the class whereas the "available" after that refers to the true/false condition placed -->
+        <div v-on:click="available = !available" v-bind:class="{available: available}">
+            <span> Taxi Driver: Eric </span>
+        </div>
+        <!-- in the elements of inspect page, red will not be displayed since it is false whereas blue will be since it is true -->
+
+        <h2> Example 2 </h2>
+        <!-- When you do "nearby =!nearby," it treats this as a true or false statement -->
+        <button v-on:click="nearby = !nearby"> Toggle nearby </button>
+        <button v-on:click="available = !available"> Toggle available </button>
+        <!-- binds the class called compClasses in computed  -->
+        <div v-bind:class="compClasses">
+            <span>
+                Test 2 of Taxi Driver: Eric
+            </span>
+        </div>
+    </div>
+
+    <hr>
+
+    <div id="conditionals">
+        <h1> Conditionals with v-if and v-show S</h1>
+        <button v-on:click="error = !error"> Toggle Error </button>
+        <button v-on:click="success = !success"> Toggle Success </button>
+        <!-- creating a conditional below -->
+        <!-- if v-if is equal to false, nothing will get shown but if v-if is equal to true, then it will be displayed -->
+        <p v-if="error"> Error exists here since you toggeled Error button </p>
+        <!-- instead of doing the same thing again for success, we can use v-else-if which triggers both statements -->
+        <!-- else-if statement only checks if the above if statement is false, otherwise, it won't show for success again -->
+        <p v-else-if="success"> Toggled success, you get success </p>
+
+        <!-- using v-show -->
+        <p v-show="error"> This is using v-show with "error" </p>
+        <p v-show="success"> This is using v-show with "success" </p>
+    </div>
 
     <script src="app.js"></script>
 </body>

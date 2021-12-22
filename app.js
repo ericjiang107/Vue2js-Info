@@ -49,4 +49,70 @@ var instance2 = new Vue({
             alert('You clicked Me');
         }
     }
+});
+
+var instance3 = new Vue({
+    el: '#vue-computing',
+    data: {
+        age: 20,
+        a: 0,
+        b: 0,
+    },
+    methods: {
+        // addToA: function(){
+        //     console.log('addtoA')
+        //     return this.a + this.age;
+        // },
+        // addToB: function(){
+        //     console.log('addtoB')
+        //     return this.b + this.age;
+        // },
+    },
+    // computed is an object
+    // Sometimes it is better to have a computed section to do the computing rather than doing that in methods
+    computed: {
+        addToA: function(){
+            console.log('addtoA')
+            return this.a + this.age;
+        },
+        addToB: function(){
+            console.log('addtoB')
+            return this.b + this.age;
+        },
+    },
+});
+
+var instance4 = new Vue({
+    el: '#dynamic-css',
+    data: {
+        available: true,
+        nearby: false
+    },
+    methods: {
+
+    },
+    computed: {
+        compClasses: function(){
+            // return an object containning 2 key value pairs
+            return {
+                // this.available refers to the available in instance4
+                available: this.available,
+                nearby: this.nearby
+            }
+        }
+    }
+});
+
+var instance5 = new Vue({
+    el: "#conditionals",
+    data: {
+        error: false,
+        success: true,
+    },
+    methods: {
+
+    },
+    computed: {
+
+    }
 })

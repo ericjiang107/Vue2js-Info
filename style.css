@@ -5,3 +5,21 @@
     text-align: center;
     border: 1px solid #333;
 }
+
+span {
+    background: red;
+    display: inline-block;
+    padding: 10px;
+    color: #fff;
+    margin: 10px 0px; 
+}
+
+.available span {
+    background: green
+}
+
+.nearby span:after {
+    /* the content: "nearby" brings the word nearby when this is triggered */
+    content: "nearby";
+    margin-left: 10px;
+}
